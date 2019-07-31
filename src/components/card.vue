@@ -8,11 +8,13 @@
 export default {
   name: "card",
   data() {
-    return {};
+    return {
+
+    }
   },
   props: {
-      amiiboSeries:"",
-      character:""
+      amiiboSeries:{},
+      character:{},
   }
 };
 </script>
