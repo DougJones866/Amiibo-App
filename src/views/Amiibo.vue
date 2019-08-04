@@ -45,8 +45,14 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-.picture {
+
+
+img {
+  height: 250px;
+  width: auto;
   display: inline-block;
+  
+
 }
 
 
