@@ -2,9 +2,9 @@
   <div>
     <ul class="amiibo">
       <li v-for="(amiibo , index ) of results" :key="index">
-        <figure class="picture" >
-        <img :src="amiibo.image" :alt="amiibo.picture">
-        <figcaption>{{amiibo.type}}</figcaption>
+        <figure class="picture">
+          <img :src="amiibo.image" :alt="amiibo.picture" />
+          <figcaption>{{amiibo.name}}</figcaption>
         </figure>
       </li>
     </ul>
@@ -13,10 +13,8 @@
 
 <script>
 import axios from "axios";
-import {API} from '@/common/api';
-import card from '@/components/card';
-
-
+import { API } from "@/common/api";
+import card from "@/components/card";
 
 export default {
   name: "Amiibo",
@@ -27,33 +25,28 @@ export default {
     };
   },
   mounted() {
-    axios
-      API.get()
-      .then(response => { 
-        this.results = response.data.amiibo
-        this.results = this.results.filter (result => {
-          return result.type.toLowerCase()!=='card'
-        })
-      } )
+    axios;
+    API.get().then(response => {
+      this.results = response.data.amiibo;
+      this.results = this.results.filter(result => {
+        return result.type.toLowerCase() !== "card";
+      });
+    });
   },
   components: {
-    'amiibo-card': card,
+    "amiibo-card": card
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-
-
+li {
+  list-style-type: none;
+  display: inline-block;
+}
 img {
   height: 250px;
   width: auto;
-  display: inline-block;
-  
-
 }
-
-
 </style>
