@@ -3,7 +3,7 @@
     <ul class="amiibo">
       <li v-for="(amiibo , index ) of results" :key="index">
         <figure class="picture">
-          <img :src="amiibo.image" :alt="amiibo.picture" />
+           <img :src="amiibo.image" :alt="amiibo.picture" />
           <figcaption>{{amiibo.name}}</figcaption>
         </figure>
       </li>
@@ -14,7 +14,7 @@
 <script>
 import axios from "axios";
 import { API } from "@/common/api";
-import card from "@/components/card";
+import amiiboButton from "@/components/AmiiboButton";
 
 export default {
   name: "Amiibo",
@@ -34,7 +34,7 @@ export default {
     });
   },
   components: {
-    "amiibo-card": card
+    amiiboButton
   }
 };
 </script>

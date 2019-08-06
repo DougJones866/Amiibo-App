@@ -1,12 +1,15 @@
 <template>
-<div></div>
+<div>
+  <h1>Test</h1>
+  <button>Hello</button>
+</div>
 </template>
 
 
 
 <script>
 export default {
-  name: "card",
+  name: "AmiiboCard",
   data() {
     return {
 
