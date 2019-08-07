@@ -1,19 +1,27 @@
 <template>
-  <div>
-    <v-button>Button
-    </v-button>
-    <p>Test</p>
+  <div class="btn">
+    <button v-on:click="showInfo">{{ msg }}</button>
   </div>
 </template>
 
 <script>
+import { API } from "@/common/api";
+import AmiiboCard from '@/components/AmiiboCard'
+
 export default {
-  name: "amiiboButton",
-  props: {
-    OnClick: {
-      type: Function,
-      required: true
+  name: "AmiiboButton",
+  data () {
+    return{
+      results: null,
     }
+  },
+  methods: {
+    showInfo: function() {
+      console.log(this.msg);
+    }
+  },
+  props: {
+    msg: String
   }
 };
 </script>

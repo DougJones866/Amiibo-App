@@ -1,20 +1,28 @@
 <template>
   <div>
+
+
+
     <ul class="amiibo">
       <li v-for="(amiibo , index ) of results" :key="index">
         <figure class="picture">
            <img :src="amiibo.image" :alt="amiibo.picture" />
-          <figcaption>{{amiibo.name}}</figcaption>
+           <figcaption>{{amiibo.name}}</figcaption>
         </figure>
+        <AmiiboButton msg="Hello!" /> 
       </li>
     </ul>
+
+
+
+
+ 
   </div>
 </template>
 
 <script>
-import axios from "axios";
 import { API } from "@/common/api";
-import amiiboButton from "@/components/AmiiboButton";
+import AmiiboButton from "@/components/AmiiboButton";
 
 export default {
   name: "Amiibo",
@@ -22,10 +30,9 @@ export default {
     return {
       results: null,
       errors: []
-    };
+    }
   },
   mounted() {
-    axios;
     API.get().then(response => {
       this.results = response.data.amiibo;
       this.results = this.results.filter(result => {
@@ -34,7 +41,7 @@ export default {
     });
   },
   components: {
-    amiiboButton
+    AmiiboButton
   }
 };
 </script>
