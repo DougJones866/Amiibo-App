@@ -1,27 +1,28 @@
 <template>
   <div class="btn">
-    <button v-on:click="showInfo">{{ msg }}</button>
+    <button v-on:click="amiiboData ">Test</button>
   </div>
 </template>
 
 <script>
-import { API } from "@/common/api";
-import AmiiboCard from '@/components/AmiiboCard'
 
 export default {
   name: "AmiiboButton",
-  data () {
+  data: function () {
     return{
       results: null,
     }
   },
   methods: {
-    showInfo: function() {
-      console.log(this.msg);
+    amiiboData: function(event) {
+      console.log("hello World")
     }
   },
   props: {
-    msg: String
+    AmiiboName: {
+      type: String,
+      default: '',
+    }
   }
 };
 </script>

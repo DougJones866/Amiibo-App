@@ -9,10 +9,9 @@
            <img :src="amiibo.image" :alt="amiibo.picture" />
            <figcaption>{{amiibo.name}}</figcaption>
         </figure>
-        <AmiiboButton msg="Hello!" /> 
+        <AmiiboButton v-on:click="AmiiboData"></AmiiboButton>
       </li>
     </ul>
-
 
 
 
@@ -27,7 +26,7 @@ import AmiiboButton from "@/components/AmiiboButton";
 export default {
   name: "Amiibo",
   data() {
-    return {
+    return { 
       results: null,
       errors: []
     }
@@ -39,6 +38,11 @@ export default {
         return result.type.toLowerCase() !== "card";
       });
     });
+  },
+  methods: {
+    AmiiboData: function (event) {
+      this.results = response.data.amiibo;
+    }
   },
   components: {
     AmiiboButton
