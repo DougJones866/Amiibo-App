@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import AmiiboCard from "@/components/AmiiboCard";
 
 export default {
   name: "AmiiboButton",
@@ -23,6 +24,16 @@ export default {
       type: String,
       default: '',
     }
+  },
+  components: {
+    AmiiboCard,
   }
 };
 </script>
+
+<style scoped>
+.btn {
+  text-align: center;
+}
+
+</style>

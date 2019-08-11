@@ -1,51 +1,56 @@
 <template>
   <div>
-
-
+    <AmiiboSearch></AmiiboSearch>
 
     <ul class="amiibo">
       <li v-for="(amiibo , index ) of results" :key="index">
         <figure class="picture">
-           <img :src="amiibo.image" :alt="amiibo.picture" />
-           <figcaption>{{amiibo.name}}</figcaption>
+          <img :src="amiibo.image" :alt="amiibo.picture" />
+          <figcaption>{{amiibo.name}}</figcaption>
         </figure>
         <AmiiboButton v-on:click="AmiiboData"></AmiiboButton>
       </li>
     </ul>
-
-
-
- 
   </div>
 </template>
 
 <script>
-import { API } from "@/common/api";
+import axios from "axios";
+import AmiiboSearch from "@/components/AmiiboSearch";
 import AmiiboButton from "@/components/AmiiboButton";
+import AmiiboCard from "@/components/AmiiboCard";
 
 export default {
-  name: "Amiibo",
+  name: "amiibo",
+  components: {
+    AmiiboButton,
+    AmiiboSearch,
+    AmiiboCard
+  },
   data() {
-    return { 
-      results: null,
-      errors: []
+    return {
+      results: [],
+      errors: [],
+      amiiboCharacter: "",
+      amiiboGameSeries: "",
+      amiiboName: []
+    };
+  },
+  methods: {
+    AmiiboData: function(event) {
+      axios.get(`https://www.amiiboapi.com/api/amiibo/`, {}).then(response => {
+        this.results = response.data;
+        console.log(response);
+      });
     }
   },
   mounted() {
-    API.get().then(response => {
+    axios.get(`https://www.amiiboapi.com/api/amiibo/`, {}).then(response => {
       this.results = response.data.amiibo;
       this.results = this.results.filter(result => {
         return result.type.toLowerCase() !== "card";
       });
     });
-  },
-  methods: {
-    AmiiboData: function (event) {
-      this.results = response.data.amiibo;
-    }
-  },
-  components: {
-    AmiiboButton
   }
 };
 </script>
@@ -57,7 +62,7 @@ li {
   display: inline-block;
 }
 img {
-  height: 250px;
+  height: 150px;
   width: auto;
 }
 </style>

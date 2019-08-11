@@ -1,24 +1,19 @@
 <template>
-<div class="card">
-  <h1>Test</h1>
-</div>
+    <div class="card">
+        <img v-if="image !== undefined" :src="amiibo.image">
+        
+        <h4> {{name}} </h4>
+        
+    </div>
 </template>
 
-
-
 <script>
-import { API } from "@/common/api";
-
 export default {
-  name: "AmiiboCard",
-  data() {
-    return {
-
+    name: 'card',
+    props: ["name", "image"],
+    data () {
+        return {
+        }
     }
-  },
-  props: {
-      amiiboSeries:{},
-      character:{},
-  }
-};
+}
 </script>
