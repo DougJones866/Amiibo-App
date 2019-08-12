@@ -3,12 +3,9 @@
     <div class="btn">
       <button 
       v-on:click="amiibo ">
-      Test</button>
+      {{amiibo.name}}</button>
     </div>
-    <ul class="amiibo" v-if="amiibo && amiibo.length > 0">
-      <li class="amiibo" v-for="(amiibo,index) of amiibo" :key="index"></li>
-      <p><strong>{{amiibo.character}}</strong></p>
-    </ul>
+
   </div>
 </template>
 
@@ -19,7 +16,7 @@ export default {
   name: "AmiiboButton",
   data: function() {
     return {
-      results: null
+      results: []
     };
   },
   methods: {

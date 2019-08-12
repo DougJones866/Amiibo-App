@@ -3,8 +3,10 @@
     <span class="label">Amiibo Info</span>
 
     <div class="container">
-      <div v-for="(amiibo , index ) of results" :key="index" >
-       <p>{{amiibo.name}}</p>
+    <ul class="amiibo" v-if="amiibo && amiibo.length > 0">
+      <li class="amiibo" v-for="(amiibo,index) of amiibo" :key="index"></li>
+      <p><strong>{{amiibo.character}}</strong></p>
+    </ul>
       </div>
     </div>
   </div>

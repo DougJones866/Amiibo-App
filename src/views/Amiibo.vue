@@ -8,9 +8,10 @@
           <img :src="amiibo.image" :alt="amiibo.picture" />
           <figcaption>{{amiibo.name}}</figcaption>
         </figure>
-        <AmiiboButton v-on:click="AmiiboData"></AmiiboButton>
+        <AmiiboButton v-on:click="AmiiboData">  </AmiiboButton>
       </li>
     </ul>
+    
   </div>
 </template>
 
@@ -31,9 +32,6 @@ export default {
     return {
       results: [],
       errors: [],
-      amiiboCharacter: "",
-      amiiboGameSeries: "",
-      amiiboName: []
     };
   },
   methods: {
