@@ -1,19 +1,24 @@
 <template>
-    <div class="card">
-        <img v-if="image !== undefined" :src="amiibo.image">
-        
-        <h4> {{name}} </h4>
-        
+  <div>
+    <span class="label">Amiibo Info</span>
+
+    <div class="container">
+      <div v-for="(amiibo , index ) of results" :key="index" >
+       <p>{{amiibo.name}}</p>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'card',
-    props: ["name", "image"],
-    data () {
-        return {
-        }
+  data() {
+    return {
+
     }
-}
+  },
+  props: {
+    amiiboData: {}
+  },
+};
 </script>

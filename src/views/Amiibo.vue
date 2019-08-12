@@ -60,6 +60,7 @@ export default {
 li {
   list-style-type: none;
   display: inline-block;
+ 
 }
 img {
   height: 150px;

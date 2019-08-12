@@ -45,7 +45,7 @@ export default {
     }
   },
   components: {
-    AmiiboCard,
+    AmiiboCard
   }
 };
 </script>
