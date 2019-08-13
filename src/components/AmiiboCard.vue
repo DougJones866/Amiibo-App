@@ -16,7 +16,9 @@
 export default {
   data() {
     return {
-
+      results: [],
+      errors: [],
+      name: []
     }
   },
   props: {

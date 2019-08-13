@@ -12,6 +12,7 @@
       </li>
     </ul>
     
+
   </div>
 </template>
 
@@ -32,17 +33,10 @@ export default {
     return {
       results: [],
       errors: [],
+      name: []
     };
   },
-  methods: {
-    AmiiboData: function(event) {
-      axios.get(`https://www.amiiboapi.com/api/amiibo/`, {}).then(response => {
-        this.results = response.data;
-        console.log(response);
-      });
-    }
-  },
-  mounted() {
+  created() {
     axios.get(`https://www.amiiboapi.com/api/amiibo/`, {}).then(response => {
       this.results = response.data.amiibo;
       this.results = this.results.filter(result => {
