@@ -1,37 +1,38 @@
 <template>
   <div>
     <div class="btn">
-      <button 
-      v-on:click="amiibo ">
-      {{amiibo.name}}</button>
+      <button v-on:click="amiibo ">{{amiibo.name}}</button>
     </div>
-
   </div>
 </template>
 
 <script>
-import AmiiboCard from "@/components/AmiiboCard";
+import axios from "axios";
+
 
 export default {
   name: "AmiiboButton",
   data: function() {
     return {
-      results: []
+      results: [],
+      name: this.amiiboName
     };
+  },
+  created: function() {
+    console.log("this.amiiboName");
   },
   methods: {
     amiibo: function(event) {
-      console.log("hello World");
+      axios.get(`https://www.amiiboapi.com/api/amiibo/`, {}).then(response => {
+        this.results = response.data;
+        console.log(response);
+      });
     }
   },
-  props: {
-    AmiiboName: {
-      type: String,
-      default: ""
-    }
-  },
+  props: ["amiiboName"],
+
   components: {
-    AmiiboCard
+   
   }
 };
 </script>

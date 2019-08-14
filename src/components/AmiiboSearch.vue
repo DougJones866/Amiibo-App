@@ -12,18 +12,13 @@
       </ul>
       <button type="submit">Go</button>
     </form>
-    <AmiiboCard
-      v-for="amiibo in results.amiibo "
-      :key="amiibo.id"
-      :name="amiibo.name"
-      :image="amiibo.imageURL"
-    ></AmiiboCard>
+    
   </div>
 </template> 
 
 <script>
 import axios from "axios";
-import AmiiboCard from "@/components/AmiiboCard";
+
 
 export default {
   name: "Search",
@@ -45,7 +40,7 @@ export default {
     }
   },
   components: {
-    AmiiboCard
+    
   }
 };
 </script>

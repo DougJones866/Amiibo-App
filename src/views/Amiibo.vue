@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AmiiboSearch></AmiiboSearch>
+    <!-- <AmiiboSearch></AmiiboSearch> -->
 
     <ul class="amiibo">
       <li v-for="(amiibo , index ) of results" :key="index">
@@ -8,11 +8,10 @@
           <img :src="amiibo.image" :alt="amiibo.picture" />
           <figcaption>{{amiibo.name}}</figcaption>
         </figure>
-        <AmiiboButton v-on:click="AmiiboData">  </AmiiboButton>
+        <button v-on:click="goToInfo(amiibo)">{{amiibo.name}}</button>
+        <!-- <AmiiboButton :amiibo-name="amiibo.name">  </AmiiboButton> -->
       </li>
     </ul>
-    
-
   </div>
 </template>
 
@@ -20,14 +19,12 @@
 import axios from "axios";
 import AmiiboSearch from "@/components/AmiiboSearch";
 import AmiiboButton from "@/components/AmiiboButton";
-import AmiiboCard from "@/components/AmiiboCard";
 
 export default {
   name: "amiibo",
   components: {
     AmiiboButton,
-    AmiiboSearch,
-    AmiiboCard
+    AmiiboSearch
   },
   data() {
     return {
@@ -35,6 +32,12 @@ export default {
       errors: [],
       name: []
     };
+  },
+  methods: {
+    goToInfo(amiibo) {
+      this.$router.push({ name: "AmiiboCard", params: { amiibo } });
+      console.log(amiibo.name);
+    }
   },
   created() {
     axios.get(`https://www.amiiboapi.com/api/amiibo/`, {}).then(response => {
@@ -52,7 +55,6 @@ export default {
 li {
   list-style-type: none;
   display: inline-block;
- 
 }
 img {
   height: 150px;
