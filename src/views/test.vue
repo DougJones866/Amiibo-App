@@ -13,6 +13,7 @@
         <AmiiboCard v-for="item in results.amiibo " :key="item.id" :name="item.name"></AmiiboCard>
 </transition-group>
 
+API.get('find')
 
 
 <div class="container">

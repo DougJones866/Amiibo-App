@@ -16,20 +16,25 @@
 <script>
 import axios from "axios";
 
+
+
 export default {
   data() {
     return {
       results: [],
       errors: [],
-      amiibo: null
-    };
+      amiibo: null,
+    }
   },
   created: function() {
+    APInm.get('' , {
+      params: {
+        name: this.name
+      }
+    })
     this.amiibo = this.$route.params.amiibo;
-    console.log(this.amiibo);
-    axios.get("/", {
-      params: name
-    });
-  }
+    console.log(this.amiibo)
+
+  },
 };
 </script>

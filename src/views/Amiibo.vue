@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import {API} from '@/common/api';
 import axios from "axios";
 import AmiiboSearch from "@/components/AmiiboSearch";
 import AmiiboButton from "@/components/AmiiboButton";
@@ -40,7 +41,7 @@ export default {
     }
   },
   created() {
-    axios.get(`https://www.amiiboapi.com/api/amiibo/`, {}).then(response => {
+    API.get(``, {}).then(response => {
       this.results = response.data.amiibo;
       this.results = this.results.filter(result => {
         return result.type.toLowerCase() !== "card";
