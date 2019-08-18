@@ -1,18 +1,23 @@
 <template>
+
   <div>
-    <!-- <AmiiboSearch></AmiiboSearch> -->
+
+    <div class="logo">
+      <img class="logo" src="./../assets/logo.png" alt="logo">
+    </div>
 
     <ul class="amiibo">
       <li v-for="(amiibo , index ) of results" :key="index">
         <figure class="picture">
-          <img :src="amiibo.image" :alt="amiibo.picture" />
+          <img class="amiiboImg" :src="amiibo.image" :alt="amiibo.picture" />
           <figcaption>{{amiibo.name}}</figcaption>
         </figure>
         <button v-on:click="goToInfo(amiibo)">{{amiibo.name}}</button>
-        <!-- <AmiiboButton :amiibo-name="amiibo.name">  </AmiiboButton> -->
       </li>
     </ul>
   </div>
+
+
 </template>
 
 <script>
@@ -53,12 +58,25 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.logo {
+    height: 100px;
+    width: auto;
+    padding-bottom: 10px;
+    text-align: center;
+}
 li {
   list-style-type: none;
   display: inline-block;
 }
-img {
+.amiibo {
+  background-color: rgb(61, 127, 136);
+  margin: 25px;
+}
+.amiiboImg {
   height: 150px;
   width: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
 }
 </style>
