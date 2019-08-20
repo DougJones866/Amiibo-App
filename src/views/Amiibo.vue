@@ -10,7 +10,7 @@
       <li v-for="(amiibo , index ) of results" :key="index">
         <figure class="picture">
           <img class="amiiboImg" :src="amiibo.image" :alt="amiibo.picture" />
-          <figcaption>{{amiibo.name}}</figcaption>
+          <!-- <figcaption>{{amiibo.name}}</figcaption> -->
         </figure>
         <button v-on:click="goToInfo(amiibo)">{{amiibo.name}}</button>
       </li>
@@ -46,6 +46,7 @@ export default {
     }
   },
   created() {
+    
     API.get(``, {}).then(response => {
       this.results = response.data.amiibo;
       this.results = this.results.filter(result => {
@@ -64,19 +65,21 @@ export default {
     padding-bottom: 10px;
     text-align: center;
 }
-li {
+ul {
+  column-count: 5;
   list-style-type: none;
+}
+li {
+  text-align: center;
   display: inline-block;
+  width: auto;
 }
 .amiibo {
-  background-color: rgb(61, 127, 136);
   margin: 25px;
 }
 .amiiboImg {
   height: 150px;
   width: auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+
 }
 </style>
