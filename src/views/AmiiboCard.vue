@@ -2,6 +2,7 @@
   <div>
     <router-link to="/">Home</router-link>
     <div class="container">
+      
       <ul class="info">
         <h2>{{amiibo.name}}</h2>
 
@@ -44,10 +45,15 @@ export default {
 
 <style scoped>
 .container {
+  display: flex;
   max-width: 500px;
   margin: auto;
+  border-style:solid;
 }
 .picture {
   float: right;
+  margin-right: 10px;
+  display: block;
 }
+ul {}
 </style>

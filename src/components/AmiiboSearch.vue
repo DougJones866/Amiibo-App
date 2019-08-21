@@ -1,18 +1,15 @@
 <template>
-  <div>
-    <form v-on:submit.prevent="AmiiboData">
-      <p>Look for Amiibo</p>
-      <ul>
-        <li>
-          <label>
-            Name
-            <input v-model="amiiboCharacter" type="text" placeholder="Enter" />
-          </label>
-        </li>
-      </ul>
-      <button type="submit">Go</button>
-    </form>
-    
+  <div class="dropdown">
+    <div class="value" @click="isOpen = !isOpen">{{ value }}&nbsp;</div>
+    <div class="items" v-show="isOpen">
+      <div class="item"
+        v-for="(item, key) in filteredItems"
+        :key="key"
+        @click="setItem(item)"
+      >
+        {{ item }}
+      </div>
+    </div>
   </div>
 </template> 
 
@@ -21,26 +18,25 @@ import axios from "axios";
 
 
 export default {
-  name: "Search",
-  data() {
-    return {
-      results: [],
-      errors: [],
-      amiiboCharacter: "",
-      amiiboGameSeries: "",
-      amiiboName: []
-    };
-  },
-  methods: {
-    AmiiboData: function(event) {
-      axios.get(`https://www.amiiboapi.com/api/amiibo/`, {}).then(response => {
-        this.results = response.data;
-        console.log(response);
-      });
+  name: 'Search',
+    props: ['items'],
+    data() {
+        return {
+            isOpen: false,
+            value: '',
+            msg: 'Welcome to Your Vue.js App'
+        }
+    },
+    methods: {
+        setItem(item) {
+            this.value = item
+            this.isOpen = false
+        }
+    },
+    computed: {
+        filteredItems() {
+            return this.items
+        }
     }
-  },
-  components: {
-    
-  }
 };
 </script>

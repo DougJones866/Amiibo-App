@@ -1,10 +1,16 @@
 <template>
-
   <div>
-
     <div class="logo">
-      <img class="logo" src="./../assets/logo.png" alt="logo">
+      <img class="logo" src="./../assets/logo.png" alt="logo" />
     </div>
+    <!-- <select v-model="dexchoose" v-on:change="getAmiiboSeries" class="mainselect">
+      <option disabled value=" ">Please select a series</option>
+      <option
+        v-for="option in dexoptions"
+        v-bind:value="option.value"
+        v-bind:key="option.value"
+      >{{ option.text }}</option>
+    </select> -->
 
     <ul class="amiibo">
       <li v-for="(amiibo , index ) of results" :key="index">
@@ -16,12 +22,10 @@
       </li>
     </ul>
   </div>
-
-
 </template>
 
 <script>
-import {API} from '@/common/api';
+import { API } from "@/common/api";
 import axios from "axios";
 import AmiiboSearch from "@/components/AmiiboSearch";
 import AmiiboButton from "@/components/AmiiboButton";
@@ -46,7 +50,6 @@ export default {
     }
   },
   created() {
-    
     API.get(``, {}).then(response => {
       this.results = response.data.amiibo;
       this.results = this.results.filter(result => {
@@ -60,10 +63,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .logo {
-    height: 100px;
-    width: auto;
-    padding-bottom: 10px;
-    text-align: center;
+  height: 100px;
+  width: auto;
+  padding-bottom: 10px;
+  text-align: center;
 }
 ul {
   column-count: 5;
@@ -80,6 +83,5 @@ li {
 .amiiboImg {
   height: 150px;
   width: auto;
-
 }
 </style>

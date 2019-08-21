@@ -25,6 +25,20 @@ API.get('find')
     </main>
  </div>   
 
+<div class="dropdown">
+    <div class="value" @click="isOpen = !isOpen">{{ value }}&nbsp;</div>
+    <div class="items" v-show="isOpen">
+      <div class="item"
+        v-for="(item, key) in filteredItems"
+        :key="key"
+        @click="setItem(item)"
+      >
+        {{ item }}
+      </div>
+    </div>
+  </div>
+
+
 
 </template>
 
