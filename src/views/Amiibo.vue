@@ -11,7 +11,7 @@
         v-bind:key="option.value"
       >{{ option.text }}</option>
     </select> -->
-
+    <div class="main">
     <ul class="amiibo">
       <li v-for="(amiibo , index ) of results" :key="index">
         <figure class="picture">
@@ -21,6 +21,7 @@
         <button v-on:click="goToInfo(amiibo)">{{amiibo.name}}</button>
       </li>
     </ul>
+    </div>
   </div>
 </template>
 
@@ -68,6 +69,9 @@ export default {
   padding-bottom: 10px;
   text-align: center;
 }
+.main {
+  
+}
 ul {
   column-count: 5;
   list-style-type: none;
@@ -77,11 +81,21 @@ li {
   display: inline-block;
   width: auto;
 }
-.amiibo {
-  margin: 25px;
-}
+
 .amiiboImg {
-  height: 150px;
+  height: 219px;
   width: auto;
+  border-style: clear;
+  background-color: #F1DEDE;
+  
+  
+}
+button{
+  padding: .75em 1em;
+  width: 200px;
+  border: none;
+  background-color: #A20021;
+  color: white;
+  font-size: 16px;
 }
 </style>

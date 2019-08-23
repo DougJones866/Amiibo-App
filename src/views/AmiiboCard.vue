@@ -2,10 +2,12 @@
   <div>
     <router-link to="/">Home</router-link>
     <div class="container">
-      
-      <ul class="info">
+      <header>
         <h2>{{amiibo.name}}</h2>
-
+      </header>
+      <ul class="info"> 
+        <!-- make name headder -->
+      
         <li>
           <h3>Game Series: {{amiibo.gameSeries}}</h3>
         </li>
@@ -44,9 +46,15 @@ export default {
 </script>
 
 <style scoped>
+header{
+  text-align: center;
+  background-color: aquamarine;
+  
+}
+
 .container {
   display: flex;
-  max-width: 500px;
+  max-width: 700px;
   margin: auto;
   border-style:solid;
 }
