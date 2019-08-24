@@ -10,17 +10,19 @@
         v-bind:value="option.value"
         v-bind:key="option.value"
       >{{ option.text }}</option>
-    </select> -->
+    </select>-->
     <div class="main">
-    <ul class="amiibo">
-      <li v-for="(amiibo , index ) of results" :key="index">
-        <figure class="picture">
-          <img class="amiiboImg" :src="amiibo.image" :alt="amiibo.picture" />
-          <!-- <figcaption>{{amiibo.name}}</figcaption> -->
-        </figure>
-        <button v-on:click="goToInfo(amiibo)">{{amiibo.name}}</button>
-      </li>
-    </ul>
+      <ul class="amiibo">
+        <li v-for="(amiibo , index ) of results" :key="index">
+          <div class="amiiboPic">
+            <figure class="picture">
+              <img class="amiiboImg" :src="amiibo.image" :alt="amiibo.picture" />
+              <!-- <figcaption>{{amiibo.name}}</figcaption> -->
+            </figure>
+          </div>
+          <button v-on:click="goToInfo(amiibo)">{{amiibo.name}}</button>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -70,31 +72,36 @@ export default {
   text-align: center;
 }
 .main {
-  
+  display:flex;
 }
 ul {
-  column-count: 5;
+  column-count: 4;
   list-style-type: none;
 }
 li {
   text-align: center;
   display: inline-block;
+  height: 300px;
   width: auto;
 }
 
 .amiiboImg {
-  height: 219px;
+  max-height: 150px;
   width: auto;
-  border-style: clear;
-  background-color: #F1DEDE;
-  
-  
+  overflow: hidden;
 }
-button{
-  padding: .75em 1em;
+.amiiboPic {
+  background-color: #f1dede;
   width: 200px;
+  height: auto;
+  padding: 25px;
+}
+button {
+  padding: 0.75em 1em;
+  margin-bottom: 15px;
+  width: 250px;
   border: none;
-  background-color: #A20021;
+  background-color: #a20021;
   color: white;
   font-size: 16px;
 }
