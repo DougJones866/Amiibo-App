@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="logo">
+    <!-- <div class="logo">
       <img class="logo" src="./../assets/logo.png" alt="logo" />
-    </div>
+    </div> -->
     <!-- <select v-model="dexchoose" v-on:change="getAmiiboSeries" class="mainselect">
       <option disabled value=" ">Please select a series</option>
       <option
@@ -72,26 +72,24 @@ export default {
   text-align: center;
 }
 .main {
-  display:flex;
+ columns: 10px 5;
+ padding-top: 50px; 
 }
-ul {
-  column-count: 4;
-  list-style-type: none;
-}
+
 li {
   text-align: center;
   display: inline-block;
   height: 300px;
   width: auto;
+  list-style-type: none;
 }
 
 .amiiboImg {
   max-height: 150px;
   width: auto;
-  overflow: hidden;
 }
 .amiiboPic {
-  background-color: #f1dede;
+  background-color: #f1dede; 
   width: 200px;
   height: auto;
   padding: 25px;
@@ -99,7 +97,7 @@ li {
 button {
   padding: 0.75em 1em;
   margin-bottom: 15px;
-  width: 250px;
+  width: 200px;
   border: none;
   background-color: #a20021;
   color: white;
