@@ -49,10 +49,11 @@ export default {
 
 <style scoped>
 header {
-  background-color: aquamarine;
+  background-color: #2B2D42;
   display: inline-block;
   max-width: 700px;
   padding-bottom: 10px;
+  color: white;
 }
 
 .container {
@@ -61,6 +62,7 @@ header {
   height: auto;
   margin: auto;
   border-style: solid;
+  background-color: #EDF2F4;
 }
 .picture {
   float: right;

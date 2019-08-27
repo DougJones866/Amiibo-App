@@ -71,17 +71,28 @@ export default {
   padding-bottom: 10px;
   text-align: center;
 }
-.main {
- columns: 10px 5;
- padding-top: 50px; 
+ul {
+  columns: 10px 5;
+  padding: 0; 
+  margin: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around; 
 }
 
 li {
   text-align: center;
-  display: inline-block;
+  
   height: 300px;
   width: auto;
   list-style-type: none;
+
 }
 
 .amiiboImg {
@@ -89,17 +100,18 @@ li {
   width: auto;
 }
 .amiiboPic {
-  background-color: #f1dede; 
-  width: 200px;
+  background-color: #EDF2F4; 
+  width: 200px; 
   height: auto;
-  padding: 25px;
+  padding: 40px;
+  
 }
 button {
   padding: 0.75em 1em;
   margin-bottom: 15px;
   width: 200px;
   border: none;
-  background-color: #a20021;
+  background-color: #2B2D42; 
   color: white;
   font-size: 16px;
 }
