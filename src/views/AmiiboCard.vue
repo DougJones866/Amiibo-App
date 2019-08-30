@@ -4,11 +4,8 @@
       <ul class="info">
         <!-- make name headder -->
         <header>
-          <h2>{{amiibo.name}}</h2>
+          <h1>{{amiibo.name}}</h1>
         </header>
-        <li>
-          <h3>Character: {{amiibo.character}}</h3>
-        </li>
         <li>
           <h3>Game Series: {{amiibo.gameSeries}}</h3>
         </li>
@@ -48,21 +45,30 @@ export default {
 </script>
 
 <style scoped>
-header {
-  background-color: #2B2D42;
-  display: inline-block;
-  max-width: 700px;
-  padding-bottom: 10px;
-  color: white;
-}
+
 
 .container {
+  
+  /* border-style: solid; */
+  background-color: #edf2f4;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
-  max-width: 700px;
-  height: auto;
-  margin: auto;
-  border-style: solid;
-  background-color: #EDF2F4;
+  flex-wrap: wrap;
+
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+header {
+  background-color: #2b2d42;
+  position: relative;
+  text-align: center;
+  display: block; 
+  padding: 25px;
+
+  color: white;
 }
 .picture {
   float: right;
@@ -70,6 +76,7 @@ header {
   display: block;
   padding: 50px;
 }
-ul {
+li {
+  list-style-type: none;
 }
 </style>

@@ -1,5 +1,4 @@
-.navbar {
-    position: absolute;
+.navbar-default {
     background-color: blue;
 }
 
@@ -15,7 +14,7 @@
 }
 
 .footer-distributed .footer-left p {
-    color: #8f9296;
+    color: #ffffff;
     font-size: 14px;
     margin: 0;
 }
@@ -54,6 +53,7 @@
 
 .footer-distributed .footer-right {
     float: right;
+    
     margin-top: 6px;
     max-width: 180px;
 }
