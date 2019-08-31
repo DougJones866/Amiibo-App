@@ -1,1 +1,47 @@
-<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon href=favicon.ico><link rel=stylesheet type=text/css href=styles.css><link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css><script src=https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js></script><script src=https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js></script><title>Welcome to the Amiibo App!</title><link href=assets/css/app.7c20a737.css rel=preload as=style><link href=assets/js/app.c76f84e8.js rel=preload as=script><link href=assets/js/chunk-vendors.97f72bf7.js rel=preload as=script><link href=assets/css/app.7c20a737.css rel=stylesheet></head><body><nav class="navbar navbar-default" role=navigation><div class=navbar-header><button class=navbar-toggle data-toggle=collapse data-target=#example-navbar-collapse><span class=sr-only>Toggle navigation</span> <span class=icon-bar></span> <span class=icon-bar></span> <span class=icon-bar></span></button> <a class=navbar-brand href=#>Amiibo</a></div><div class="collapse navbar-collapse" id=example-navbar-collapse><ul class="nav navbar-nav"><li class=active><a href=#>Home</a></li><li><a href=#>Browse</a></li><li><a href=#>Blog</a></li></ul></div></nav><noscript><strong>We're sorry but hello-world doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><footer class=footer-distributed><div class=footer-right><a href=#><i class="fa fa-facebook"></i></a> <a href=#><i class="fa fa-twitter"></i></a> <a href=#><i class="fa fa-linkedin"></i></a> <a href=#><i class="fa fa-github"></i></a></div><div class=footer-left><p class=footer-links><a class=link-1 href=#>Home</a> <a href=#>Blog</a> <a href=#>Pricing</a> <a href=#>About</a> <a href=#>Faq</a> <a href=#>Contact</a></p><p>Company Name &copy; 2015</p></div></footer><script src=assets/js/chunk-vendors.97f72bf7.js></script><script src=assets/js/app.c76f84e8.js></script></body></html>
+Html Webpack Plugin:
+<pre>
+  Error: Parse Error: <a class="navbar-brand" href=<router-link to=/Amiibo></router-link>Amiibo</a>
+      </div>
+        <div class="collapse navbar-collapse " id="example-navbar-collapse">
+        <ul class="nav navbar-nav" >
+          <li class="active"><a href=<router-link to=/Amiibo></router-link>Home</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </div>
+    </nav>
+    <noscript>
+      <strong>We're sorry but hello-world doesn't work properly without JavaScript enabled. Please enable it to
+        continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <footer class="footer-distributed">
+      <div class="footer-right">
+        <a href="https://www.linkedin.com/in/douglas-jones-5a161566/"><i class="fa fa-linkedin"></i></a>
+        <a href="https://github.com/DougJones866"><i class="fa fa-github"></i></a>
+      </div>
+      <div class="footer-left">
+        <p class="footer-links">
+          <a class="link-1" href="#">Home</a>
+          <a href="#">Contact</a>
+        </p>
+        <p>Douglas Jones &copy; 2019</p>
+      </div>
+    </footer>
+  <script type="text/javascript" src="assets/js/chunk-vendors.6e2f163e.js"></script><script type="text/javascript" src="assets/js/app.3982e18e.js"></script></body>
+  </body>
+  </html>
+  
+  - htmlparser.js:240 new HTMLParser
+    [hello-world]/[html-minifier]/src/htmlparser.js:240:13
+  
+  - htmlminifier.js:966 minify
+    [hello-world]/[html-minifier]/src/htmlminifier.js:966:3
+  
+  - htmlminifier.js:1326 exports.minify
+    [hello-world]/[html-minifier]/src/htmlminifier.js:1326:16
+  
+  - index.js:316 Promise.resolve.then.then.html
+    [hello-world]/[html-webpack-plugin]/index.js:316:18
+  
+</pre>
