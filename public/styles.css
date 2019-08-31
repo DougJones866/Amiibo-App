@@ -1,4 +1,5 @@
-.navbar-default {
+.navbar {
+    position: absolute;
     background-color: blue;
 }
 
