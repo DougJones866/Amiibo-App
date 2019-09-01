@@ -1,8 +1,8 @@
 <template>
   <div>
-    <!-- <div class="logo">
+    <div class="logo">
       <img class="logo" src="./../assets/logo.png" alt="logo" />
-    </div>-->
+   </div>
     <!-- <select v-model="dexchoose" v-on:change="getAmiiboSeries" class="mainselect">
       <option disabled value=" ">Please select a series</option>
       <option
@@ -11,6 +11,7 @@
         v-bind:key="option.value"
       >{{ option.text }}</option>
     </select>-->
+    <h1>Select an Amiibo to View</h1>
     <div class="main">
       <ul class="amiibo">
         <li v-for="(amiibo , index ) of results" :key="index">
@@ -75,8 +76,12 @@ export default {
 .logo {
   height: 100px;
   width: auto;
-  padding-bottom: 10px;
+  margin-bottom: 25px;
   text-align: center;
+}
+h1 {
+  text-align: center;
+  margin: 10px;
 }
 ul {
   columns: 10px 5;

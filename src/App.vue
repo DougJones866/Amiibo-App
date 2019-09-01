@@ -1,5 +1,6 @@
 <template>
   <div>
+    
     <router-view/>
     
   </div>
@@ -9,3 +10,7 @@
 
 
 </script>
+
+<style scoped>
+
+</style>

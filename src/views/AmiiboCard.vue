@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="button">
+     <router-link to=/>Return</router-link>
+   </div>
     <div class="container">
       <ul class="info">
         <!-- make name headder -->
@@ -67,8 +70,10 @@ header {
   text-align: center;
   display: block; 
   padding: 25px;
-
   color: white;
+}
+h1 {
+  font-weight: bold;
 }
 .picture {
   float: right;
@@ -79,4 +84,23 @@ header {
 li {
   list-style-type: none;
 }
+
+
+.button {
+  padding: 0.75em 1em;
+  margin-bottom: 15px;
+  width: 200px;
+  border: none;
+  background-color: #2b2d42;
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.button:hover {
+    background-color: #EF233C;
+    color: white;
+    font-weight: bold;
+  }
 </style>
