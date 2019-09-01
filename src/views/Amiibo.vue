@@ -2,7 +2,7 @@
   <div>
     <!-- <div class="logo">
       <img class="logo" src="./../assets/logo.png" alt="logo" />
-    </div> -->
+    </div>-->
     <!-- <select v-model="dexchoose" v-on:change="getAmiiboSeries" class="mainselect">
       <option disabled value=" ">Please select a series</option>
       <option
@@ -24,6 +24,9 @@
         </li>
       </ul>
     </div>
+    <ul class="errors" v-if="errors && errors.length > 0">
+      <li v-for="(error, index) of errors" :key="index">{{error.message}}</li>
+    </ul>
   </div>
 </template>
 
@@ -53,12 +56,16 @@ export default {
     }
   },
   created() {
-    API.get(``, {}).then(response => {
-      this.results = response.data.amiibo;
-      this.results = this.results.filter(result => {
-        return result.type.toLowerCase() !== "card";
+    API.get(``, {})
+      .then(response => {
+        this.results = response.data.amiibo;
+        this.results = this.results.filter(result => {
+          return result.type.toLowerCase() !== "card";
+        });
+      })
+      .catch(error => {
+        this.erros.push(error);
       });
-    });
   }
 };
 </script>
@@ -73,7 +80,7 @@ export default {
 }
 ul {
   columns: 10px 5;
-  padding: 0; 
+  padding: 0;
   margin: 0;
   display: -webkit-box;
   display: -moz-box;
@@ -81,18 +88,17 @@ ul {
   display: -webkit-flex;
   display: flex;
   flex-wrap: wrap;
-  
+
   -webkit-flex-flow: row wrap;
-  justify-content: space-around; 
+  justify-content: space-around;
 }
 
 li {
   text-align: center;
-  
+
   height: 300px;
   width: auto;
   list-style-type: none;
-
 }
 
 .amiiboImg {
@@ -100,19 +106,24 @@ li {
   width: auto;
 }
 .amiiboPic {
-  background-color: #EDF2F4; 
-  width: 200px; 
+  background-color: #edf2f4;
+  width: 200px;
   height: auto;
   padding: 40px;
-  
 }
 button {
   padding: 0.75em 1em;
   margin-bottom: 15px;
   width: 200px;
   border: none;
-  background-color: #2B2D42; 
+  background-color: #2b2d42;
   color: white;
   font-size: 16px;
 }
+
+button:hover {
+    background-color: #EF233C;
+    color: white;
+    font-weight: bold;
+  }
 </style>
