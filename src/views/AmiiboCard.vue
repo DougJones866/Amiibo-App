@@ -54,14 +54,9 @@ export default {
   
   /* border-style: solid; */
   background-color: #edf2f4;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
+
   display: flex;
   flex-wrap: wrap;
-
-  -webkit-flex-flow: row wrap;
   justify-content: space-around;
 }
 header {

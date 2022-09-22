@@ -2,32 +2,39 @@
   <div>
     <div class="logo">
       <img class="logo" src="./../assets/logo.png" alt="logo" />
-   </div>
-    <!-- <select v-model="dexchoose" v-on:change="getAmiiboSeries" class="mainselect">
-      <option disabled value=" ">Please select a series</option>
-      <option
-        v-for="option in dexoptions"
-        v-bind:value="option.value"
-        v-bind:key="option.value"
-      >{{ option.text }}</option>
-    </select>-->
-    <h1>Select an Amiibo to View</h1>
-    <div class="main">
-      <ul class="amiibo">
-        <li v-for="(amiibo , index ) of results" :key="index">
-          <div class="amiiboPic">
-            <figure class="picture">
-              <img class="amiiboImg" :src="amiibo.image" :alt="amiibo.picture" />
-              <!-- <figcaption>{{amiibo.name}}</figcaption> -->
-            </figure>
-          </div>
-          <button v-on:click="goToInfo(amiibo)">{{amiibo.name}}</button>
-        </li>
+    </div>
+    <div class="container">
+      <!-- <select v-model="dexchoose" v-on:change="getAmiiboSeries" class="mainselect">
+        <option disabled value=" ">Please select a series</option>
+        <option
+          v-for="option in dexoptions"
+          v-bind:value="option.value"
+          v-bind:key="option.value"
+        >{{ option.text }}</option>
+      </select>-->
+      <h1>Select an Amiibo to View</h1>
+      <div class="main">
+        <ul class="amiibo">
+          <li v-for="(amiibo, index) of results" :key="index">
+            <div class="amiiboPic">
+              <figure class="picture">
+                <img
+                  @click="goToInfo(amiibo)"
+                  class="amiiboImg"
+                  :src="amiibo.image"
+                  :alt="amiibo.picture"
+                />
+                <!-- <figcaption>{{amiibo.name}}</figcaption> -->
+              </figure>
+            </div>
+            <!-- <button @click="goToInfo(amiibo)">{{ amiibo.name }}</button> -->
+          </li>
+        </ul>
+      </div>
+      <ul class="errors" v-if="errors && errors.length > 0">
+        <li v-for="(error, index) of errors" :key="index">{{ error.message }}</li>
       </ul>
     </div>
-    <ul class="errors" v-if="errors && errors.length > 0">
-      <li v-for="(error, index) of errors" :key="index">{{error.message}}</li>
-    </ul>
   </div>
 </template>
 
@@ -41,33 +48,33 @@ export default {
   name: "amiibo",
   components: {
     AmiiboButton,
-    AmiiboSearch
+    AmiiboSearch,
   },
   data() {
     return {
       results: [],
       errors: [],
-      name: []
+      name: [],
     };
   },
   methods: {
     goToInfo(amiibo) {
       this.$router.push({ name: "AmiiboCard", params: { amiibo } });
       console.log(amiibo.name);
-    }
+    },
   },
   created() {
     API.get(``, {})
-      .then(response => {
+      .then((response) => {
         this.results = response.data.amiibo;
-        this.results = this.results.filter(result => {
+        this.results = this.results.filter((result) => {
           return result.type.toLowerCase() !== "card";
         });
       })
-      .catch(error => {
+      .catch((error) => {
         this.erros.push(error);
       });
-  }
+  },
 };
 </script>
 
@@ -79,42 +86,46 @@ export default {
   margin-bottom: 25px;
   text-align: center;
 }
+
+.container {
+  
+  }
 h1 {
   text-align: center;
   margin: 10px;
 }
 ul {
-  columns: 10px 5;
-  padding: 0;
-  margin: 0;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
   flex-wrap: wrap;
-
-  -webkit-flex-flow: row wrap;
   justify-content: space-around;
+  padding: 0;
+  margin: 0;
 }
 
 li {
   text-align: center;
-
   height: 300px;
   width: auto;
   list-style-type: none;
 }
 
 .amiiboImg {
-  max-height: 150px;
+  height: 150px;
   width: auto;
 }
-.amiiboPic {
+.amiiboImg:hover {
+  border-style: solid;
+  height:175px;
+  width:auto;
+}
+/* .amiiboPic {
   background-color: #edf2f4;
   width: 200px;
   height: auto;
   padding: 40px;
+} */
+.amiiboPic:hover {
+  /* background-color: red; */
 }
 button {
   padding: 0.75em 1em;
@@ -127,8 +138,8 @@ button {
 }
 
 button:hover {
-    background-color: #EF233C;
-    color: white;
-    font-weight: bold;
-  }
+  background-color: #ef233c;
+  color: white;
+  font-weight: bold;
+}
 </style>
